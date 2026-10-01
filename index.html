@@ -3,103 +3,104 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>¡Hola Mundo! - Despliegue Continuo</title>
-  <link rel="stylesheet" href="style.css">
+  <title>¡Hola Mundo!</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #090d16;
+      background-image: 
+        radial-gradient(at 0% 0%, rgba(56, 189, 248, 0.12) 0px, transparent 50%),
+        radial-gradient(at 100% 100%, rgba(99, 102, 241, 0.12) 0px, transparent 50%);
+      color: #f1f5f9;
+      padding: 1.5rem;
+    }
+    .card {
+      text-align: center;
+      width: 100%;
+      max-width: 440px;
+      padding: 3rem 2.25rem;
+      background: rgba(17, 24, 39, 0.7);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 24px;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.4);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      transition: transform 0.2s ease;
+    }
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: #38bdf8;
+      background: rgba(56, 189, 248, 0.1);
+      border: 1px solid rgba(56, 189, 248, 0.25);
+      padding: 0.35rem 0.85rem;
+      border-radius: 999px;
+      margin-bottom: 1.75rem;
+    }
+    .dot {
+      width: 6px;
+      height: 6px;
+      background: #38bdf8;
+      border-radius: 50%;
+      box-shadow: 0 0 8px #38bdf8;
+    }
+    h1 {
+      font-size: 3.25rem;
+      font-weight: 700;
+      letter-spacing: -0.04em;
+      margin-bottom: 0.85rem;
+      background: linear-gradient(135deg, #ffffff 40%, #94a3b8 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    p {
+      color: #94a3b8;
+      font-size: 1rem;
+      line-height: 1.6;
+      margin-bottom: 2.25rem;
+      font-weight: 400;
+    }
+    .footer {
+      font-size: 0.85rem;
+      color: #64748b;
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+      padding-top: 1.25rem;
+      letter-spacing: 0.01em;
+    }
+    .footer strong {
+      color: #cbd5e1;
+      font-weight: 500;
+    }
+  </style>
 </head>
 <body>
-  <div class="background-glow"></div>
-  
-  <main class="container">
-    <header class="header">
-      <div class="badge">
-        <span class="pulse-dot"></span>
-        Despliegue Automático Activo
-      </div>
-      <h1 class="title">¡Hola Mundo! 🚀</h1>
-      <p class="subtitle">Práctica de Despliegue Continuo en la Nube con <strong>GitHub Pages</strong></p>
-    </header>
-
-    <section class="card profile-card">
-      <div class="avatar-container">
-        <div class="avatar-ring">
-          <span class="avatar-text">SP</span>
-        </div>
-      </div>
-      <h2>Sebastián Peguero</h2>
-      <p class="role">Estudiante de Software • ITLA</p>
-      <div class="info-grid">
-        <div class="info-item">
-          <span class="info-label">Materia</span>
-          <span class="info-val">Electiva II</span>
-        </div>
-        <div class="info-item">
-          <span class="info-label">Matrícula</span>
-          <span class="info-val">2025-1172</span>
-        </div>
-        <div class="info-item">
-          <span class="info-label">Hosting</span>
-          <span class="info-val">GitHub Pages CDN</span>
-        </div>
-        <div class="info-item">
-          <span class="info-label">Pipeline</span>
-          <span class="info-val">Git Push CI/CD</span>
-        </div>
-      </div>
-    </section>
-
-    <section class="card interactive-card">
-      <h3>⚡ Interacción en Vivo</h3>
-      <p>Esta página demuestra la integración continua: cada cambio enviado al repositorio se compila y publica automáticamente sin intervención manual.</p>
-      
-      <div class="interactive-actions">
-        <button id="counterBtn" class="btn btn-primary">
-          <span id="clickIcon">🎉</span> ¡Haz clic aquí! (<span id="clickCount">0</span>)
-        </button>
-        <button id="themeToggle" class="btn btn-secondary">
-          🌓 Alternar Tema
-        </button>
-      </div>
-      <p id="feedbackText" class="feedback-text"></p>
-    </section>
-
-    <section class="card workflow-card">
-      <h3>🔄 Flujo de Integración y Despliegue</h3>
-      <div class="workflow-steps">
-        <div class="step">
-          <div class="step-num">1</div>
-          <div class="step-content">
-            <h4>Código en GitHub</h4>
-            <p>Se realizan modificaciones y se hace push a la rama <code>main</code>.</p>
-          </div>
-        </div>
-        <div class="step-connector"></div>
-        <div class="step">
-          <div class="step-num">2</div>
-          <div class="step-content">
-            <h4>Trigger Automático</h4>
-            <p>GitHub detecta los cambios y activa el bot de despliegue de Pages.</p>
-          </div>
-        </div>
-        <div class="step-connector"></div>
-        <div class="step">
-          <div class="step-num">3</div>
-          <div class="step-content">
-            <h4>Publicación Global</h4>
-            <p>El sitio web se distribuye en la red global CDN bajo el dominio <code>github.io</code>.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <footer class="footer">
-      <p>© 2026 Sebastián Peguero • Repositorio alojado en <a href="https://github.com/SebasPeguero/hola-mundo-web" target="_blank">GitHub</a></p>
-      <div id="liveClock" class="live-clock"></div>
-    </footer>
+  <main class="card">
+    <div class="badge">
+      <span class="dot"></span>
+      GitHub Pages
+    </div>
+    <h1>¡Hola Mundo!</h1>
+    <p>Página web con despliegue automatizado en la nube.</p>
+    <div class="footer">
+      <strong>Sebastián Peguero</strong> • Electiva II
+    </div>
   </main>
-
-  <script src="script.js"></script>
 </body>
 </html>
